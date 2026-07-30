@@ -1,48 +1,70 @@
-let count = Number(localStorage.getItem("count")) || 0;
 let total = Number(localStorage.getItem("total")) || 0;
 let today = Number(localStorage.getItem("today")) || 0;
 
-const countEl = document.getElementById("count");
-const malaEl = document.getElementById("mala");
+const count = document.getElementById("count");
 const totalEl = document.getElementById("total");
 const todayEl = document.getElementById("today");
-const btn = document.getElementById("jaapBtn");
+const malaEl = document.getElementById("mala");
+const tapBtn = document.getElementById("tapBtn");
+const mantraText = document.getElementById("mantraText");
+const mantraSelect = document.getElementById("mantraSelect");
 
-function update() {
-  countEl.innerText = count;
-  totalEl.innerText = total;
-  todayEl.innerText = today;
-  malaEl.innerText = Math.floor(total / 108);
+function updateUI() {
+  count.textContent = total;
+  totalEl.textContent = total;
+  todayEl.textContent = today;
+  malaEl.textContent = Math.floor(total / 108);
 
-  localStorage.setItem("count", count);
   localStorage.setItem("total", total);
   localStorage.setItem("today", today);
 }
 
-update();
+updateUI();
 
-btn.addEventListener("click", () => {
-  count++;
+tapBtn.addEventListener("click", () => {
   total++;
   today++;
+  updateUI();
 
-  if (navigator.vibrate) {
-    navigator.vibrate(40);
-  }
-
-  update();
+  if (navigator.vibrate) navigator.vibrate(50);
 
   if (total % 108 === 0) {
-    alert("🎉 Radhe Radhe!\n1 Mala Complete 🙏");
+    alert("🎉 Congratulations! 108 Jaap Completed 🙏");
   }
 });
-const currentDate = new Date();
-const dateElement = document.getElementById("currentDate");
 
-if (dateElement) {
-  dateElement.innerText = currentDate.toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  });
+mantraSelect.addEventListener("change", () => {
+  mantraText.textContent = mantraSelect.value;
+});
+
+function resetData() {
+  if (confirm("Reset all Jaap?")) {
+    total = 0;
+    today = 0;
+    updateUI();
+  }
 }
+
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+}
+
+function shareResult() {
+  if (navigator.share) {
+    navigator.share({
+      title: "BhaktiCounter",
+      text: `🙏 I completed ${total} Jaap.`,
+      url: location.href
+    });
+  } else {
+    alert("Share is not supported on this device.");
+  }
+}
+
+const date = new Date();
+document.getElementById("currentDate").textContent =
+date.toLocaleDateString("en-IN", {
+  day: "numeric",
+  month: "long",
+  year: "numeric"
+});
