@@ -46,10 +46,21 @@
 <button id="jaapBtn">
 Start Jaap
 </button>
+<br><br>
 
+<button onclick="resetData()" class="resetBtn">
+Reset Counter
+</button>
 </main>
 
 <script src="script.js"></script>
-
+<script>
+function resetData(){
+  if(confirm("Reset all counters?")){
+    localStorage.clear();
+    location.reload();
+  }
+}
+</script>
 </body>
 </html>
