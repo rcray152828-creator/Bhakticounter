@@ -36,3 +36,13 @@ btn.addEventListener("click", () => {
     alert("🎉 Radhe Radhe!\n1 Mala Complete 🙏");
   }
 });
+const currentDate = new Date();
+const dateElement = document.getElementById("currentDate");
+
+if (dateElement) {
+  dateElement.innerText = currentDate.toLocaleDateString("en-IN", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
+}
