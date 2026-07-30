@@ -3,64 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BhaktiCounter</title>
+<title>BhaktiCounter V3</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#ff9800">
 </head>
 
 <body>
 
-<header class="header">
-    <h1>🙏 BhaktiCounter 🙏</h1>
-    <p>Daily Mantra Jaap Counter</p>
-</header>
+<div class="container">
 
-<main class="container">
+<h1>🕉 BhaktiCounter V3</h1>
 
-<div class="jaap-circle">
-    <span id="count">0</span>
+<h3 id="currentDate"></h3>
+
+<select id="mantraSelect">
+<option>🙏 जय जगन्नाथ</option>
+<option>🦚 राधे राधे</option>
+<option>🕉 ॐ नमः शिवाय</option>
+<option>🪷 हरे कृष्ण</option>
+<option>🚩 जय श्री राम</option>
+</select>
+
+<div class="counterBox">
+
+<div id="count">0</div>
+
+<p id="mantraText">🙏 जय जगन्नाथ</p>
+
+<button id="tapBtn">📿 Tap For Jaap</button>
+
 </div>
-
-<h2>राधे राधे</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>📿 Mala</h3>
-<p id="mala">0</p>
+<h2 id="today">0</h2>
+<p>Today's Jaap</p>
 </div>
 
 <div class="card">
-<h3>🙏 Total Jaap</h3>
-<p id="total">0</p>
+<h2 id="total">0</h2>
+<p>Total Jaap</p>
 </div>
 
 <div class="card">
-<h3>📅 <span id="currentDate"></span></h3>
-<p id="today">0</p>
+<h2 id="mala">0</h2>
+<p>Total Mala</p>
 </div>
 
 </div>
 
-<button id="jaapBtn">
-Start Jaap
-</button>
-<br><br>
+<div class="buttons">
 
-<button onclick="resetData()" class="resetBtn">
-Reset Counter
-</button>
-</main>
+<button onclick="shareResult()">📤 Share</button>
+
+<button onclick="resetData()">🔄 Reset</button>
+
+<button onclick="toggleTheme()">🌙 Theme</button>
+
+</div>
+
+<p class="footer">
+Made with ❤️ for Devotees
+</p>
+
+</div>
 
 <script src="script.js"></script>
-<script>
-function resetData(){
-  if(confirm("Reset all counters?")){
-    localStorage.clear();
-    location.reload();
-  }
-}
-</script>
+
 </body>
 </html>
