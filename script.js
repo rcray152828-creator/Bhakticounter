@@ -21,8 +21,16 @@ function updateUI() {
 
   localStorage.setItem("total", total);
   localStorage.setItem("today", today);
-}
+// Save today's history
+history[todayKey] = today;
+localStorage.setItem("history", JSON.stringify(history));
 
+// Save daily record
+if (today > dailyRecord) {
+  dailyRecord = today;
+  localStorage.setItem("dailyRecord", dailyRecord);
+}
+}
 updateUI();
 
 tapBtn.addEventListener("click", () => {
