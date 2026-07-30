@@ -1,6 +1,10 @@
 let total = Number(localStorage.getItem("total")) || 0;
 let today = Number(localStorage.getItem("today")) || 0;
+// Daily Record & History
+let history = JSON.parse(localStorage.getItem("history")) || {};
+let dailyRecord = Number(localStorage.getItem("dailyRecord")) || 0;
 
+const todayKey = new Date().toISOString().split("T")[0];
 const count = document.getElementById("count");
 const totalEl = document.getElementById("total");
 const todayEl = document.getElementById("today");
