@@ -25,7 +25,11 @@ tapBtn.addEventListener("click", () => {
   total++;
   today++;
   updateUI();
-
+const bell = document.getElementById("bellSound");
+if (bell) {
+  bell.currentTime = 0;
+  bell.play().catch(() => {});
+}
   if (navigator.vibrate) navigator.vibrate(50);
 
   if (total % 108 === 0) {
