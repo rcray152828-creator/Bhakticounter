@@ -132,3 +132,81 @@ margin-top:25px;
 font-size:14px;
 color:#777;
 }
+/* ===== Part 2B ===== */
+
+body.dark{
+background:linear-gradient(135deg,#111,#222);
+}
+
+body.dark .container{
+background:#1e1e1e;
+color:#fff;
+}
+
+body.dark .counterBox{
+background:#2b2b2b;
+border-color:#ff9800;
+}
+
+body.dark .card{
+background:#333;
+color:#fff;
+}
+
+body.dark .card p,
+body.dark #currentDate,
+body.dark .footer{
+color:#ddd;
+}
+
+body.dark #mantraText{
+color:#fff;
+}
+
+button,
+#tapBtn{
+transition:all .3s ease;
+}
+
+button:hover,
+#tapBtn:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
+#count{
+animation:pulse 1.5s infinite;
+}
+
+@media (max-width:480px){
+
+.container{
+padding:15px;
+}
+
+h1{
+font-size:24px;
+}
+
+#count{
+font-size:48px;
+}
+
+.card h2{
+font-size:22px;
+}
+
+.buttons{
+flex-direction:column;
+}
+
+.buttons button{
+width:100%;
+}
+}
