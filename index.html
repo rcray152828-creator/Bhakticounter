@@ -1,21 +1,55 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BhaktiCounter</title>
-</head>
-<body style="font-family:Arial;text-align:center;background:#fff7f0;padding:40px;">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<h1>🙏 BhaktiCounter 🙏</h1>
+<title>BhaktiCounter</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <h1>🙏 BhaktiCounter 🙏</h1>
+    <p>Daily Mantra Jaap Counter</p>
+</header>
+
+<main class="container">
+
+<div class="jaap-circle">
+    <span id="count">0</span>
+</div>
 
 <h2>राधे राधे</h2>
 
-<p>Professional Jaap Counter Website Coming Soon...</p>
+<div class="cards">
 
-<button style="padding:15px 25px;background:#ff7a00;color:white;border:none;border-radius:10px;">
+<div class="card">
+<h3>📿 Mala</h3>
+<p id="mala">0</p>
+</div>
+
+<div class="card">
+<h3>🙏 Total Jaap</h3>
+<p id="total">0</p>
+</div>
+
+<div class="card">
+<h3>📅 Today</h3>
+<p id="today">0</p>
+</div>
+
+</div>
+
+<button id="jaapBtn">
 Start Jaap
 </button>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
