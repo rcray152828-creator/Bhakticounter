@@ -12,7 +12,45 @@ const malaEl = document.getElementById("mala");
 const tapBtn = document.getElementById("tapBtn");
 const mantraText = document.getElementById("mantraText");
 const mantraSelect = document.getElementById("mantraSelect");
+const languageSelect = document.getElementById("languageSelect");
 
+const languageData = {
+  en: {
+    tap: "Tap For Jaap",
+    today: "Today's Jaap",
+    total: "Total Jaap",
+    mala: "Total Mala",
+    record: "Daily Record",
+    history: "History Days"
+  },
+  hi: {
+    tap: "Jaap Karen",
+    today: "Aaj Ka Jaap",
+    total: "Kul Jaap",
+    mala: "Kul Mala",
+    record: "Dainik Record",
+    history: "Itihas Din"
+  },
+  or: {
+    tap: "Japa Karantu",
+    today: "Aji Ra Japa",
+    total: "Mot Japa",
+    mala: "Mot Mala",
+    record: "Dainika Record",
+    history: "Itihasa Dina"
+  }
+};
+
+languageSelect.addEventListener("change", () => {
+  const lang = languageSelect.value;
+
+  tapBtn.textContent = "🧿 " + languageData[lang].tap;
+  document.querySelectorAll(".card p")[0].textContent = languageData[lang].today;
+  document.querySelectorAll(".card p")[1].textContent = languageData[lang].total;
+  document.querySelectorAll(".card p")[2].textContent = languageData[lang].mala;
+  document.querySelectorAll(".card p")[3].textContent = languageData[lang].record;
+  document.querySelectorAll(".card p")[4].textContent = languageData[lang].history;
+});7
 function updateUI() {
   count.textContent = total;
   totalEl.textContent = total;
